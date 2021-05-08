@@ -9,13 +9,18 @@ namespace Practica
 			
 			Coleccionable cola = new Cola<Comparable>();
 			Coleccionable pila = new Pila<Comparable>();
-		
+			
+			
 			llenar(cola);
+			Console.WriteLine("Informar Cola: \n--------------");
 			informar(cola);
+			
 			llenar(pila);
+			Console.WriteLine("\nInformar Pila: \n--------------");
 			informar(pila);
 			
 			ColeccionMultiple multiple = new ColeccionMultiple(((Pila<Comparable>)pila), ((Cola<Comparable>)cola));
+			Console.WriteLine("\nInformar ColeccionMultiple: \n---------------------------");
 			informar(multiple);
 			
 			Coleccionable colaPersonas = new Cola<Comparable>();
@@ -24,6 +29,7 @@ namespace Practica
 			llenarPersonas(pilaPersonas);
 			
 			ColeccionMultiple multiplePersonas = new ColeccionMultiple(((Pila<Comparable>)pilaPersonas), ((Cola<Comparable>)colaPersonas));
+			Console.WriteLine("\nInformar ColeccionMultiplePersonas: \n-----------------------------------");
 			informar(multiplePersonas);
 			
 			Coleccionable colaAlumnos = new Cola<Comparable>();
@@ -32,19 +38,27 @@ namespace Practica
 			llenarAlumnos(pilaAlumnos);
 			
 			ColeccionMultiple multipleAlumnos = new ColeccionMultiple(((Pila<Comparable>)pilaAlumnos), ((Cola<Comparable>)colaAlumnos));
+			Console.WriteLine("\nInformar ColeccionMultipleAlumnos: \n----------------------------------");
 			informar(multipleAlumnos);	
 
 			Diccionario<Comparable> dictionary = new Diccionario<Comparable>();
 			Numero number = new Numero(1);
 			Numero number2 = new Numero(2);
-			Console.WriteLine("Agrego 1, avion");
+			
 			dictionary.agregarClaveValor(number,"avion");
-			Console.WriteLine("Agrego 1, casa");
 			dictionary.agregarClaveValor(number,"casa");
-			Console.WriteLine("Agrego 2, perro");
 			dictionary.agregarClaveValor(number2,"perro");
+
+			ClaveValor valorVacio = new ClaveValor("gato");
+			dictionary.agregar(valorVacio);
+
+			dictionary.recorrer();
+			
+			Console.WriteLine("\nInformar Diccionario: \n---------------------");
 			informar(dictionary);
-			//Console.WriteLine(dictionary.valorDe(number));
+			
+			Console.WriteLine("\nInformar valor de: ");
+			Console.WriteLine(dictionary.valorDe(number));
 			
 			Console.ReadKey();
 			

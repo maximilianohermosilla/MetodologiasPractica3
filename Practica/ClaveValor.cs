@@ -10,6 +10,10 @@ namespace Practica
 		Comparable clave;
 		Object valor;
 		
+		public ClaveValor(Object valor){
+			this.valor=valor;
+		}
+		
 		public ClaveValor(Comparable clave, Object valor){
 			this.clave=clave;
 			this.valor=valor;
@@ -29,7 +33,7 @@ namespace Practica
 	
 		public bool sosIgual(Comparable obj){
 			bool esIgual=false;
-			if (clave==((ClaveValor)obj).getClave()){
+			if ((((ClaveValor)obj).getClave())==((Numero)clave)){
 				esIgual=true;
 		}
 			return esIgual;
@@ -37,17 +41,17 @@ namespace Practica
 		
 		public bool sosMenor(Comparable obj){
 			bool esMenor=false;
-			/*if (valor<((ClaveValor)obj).getValor()){
+			if ((((Numero)clave).getValor()) < ((Numero)(((ClaveValor)obj).getClave())).getValor()){
 				esMenor=true;
-		}*/
+		}
 			return esMenor;
 		}
 		
 		public bool sosMayor(Comparable obj){
 			bool esMayor=false;
-			/*if (valor>((ClaveValor)obj).getValor()){
+			if ((((Numero)clave).getValor()) > ((Numero)(((ClaveValor)obj).getClave())).getValor()){
 				esMayor=true;
-		}*/
+		}
 			return esMayor;
 		}
 		
@@ -57,7 +61,7 @@ namespace Practica
 		
 		public override string ToString()
 		{
-			return string.Format("{0},{1}", valor,clave);
+			return string.Format("{0},{1}",clave,valor);
 		}
 		
 	}
