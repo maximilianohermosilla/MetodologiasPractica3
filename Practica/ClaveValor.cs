@@ -22,7 +22,10 @@ namespace Practica
 		public void setValor(Object valor){
 			this.valor=valor;
 		}
-			
+		
+		public void setClave(Comparable clave){
+			this.clave=clave;
+		}		
 		public Comparable getClave(){
 			return clave;
 		}

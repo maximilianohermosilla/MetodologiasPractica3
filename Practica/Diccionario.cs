@@ -11,7 +11,7 @@ namespace Practica
 		private List<Comparable> datos = new List<Comparable>();
 		Numero num;
 		int indice=0;
-		
+		EstrategiaDiccionario comparador = new PorValor();
 
 		public int cuantos(){
 			return this.datos.Count;
@@ -20,7 +20,7 @@ namespace Practica
 		public Comparable menor(){
 			Comparable minimo = this.datos[0];
 			foreach (Comparable elemento in datos){
-				if (((ClaveValor)elemento).sosMenor(minimo)){
+				if (comparador.esMenor((ClaveValor)elemento, (ClaveValor)minimo)){
 					minimo=elemento;
 				}
 			}
@@ -30,7 +30,7 @@ namespace Practica
 		public Comparable mayor(){
 			Comparable maximo = this.datos[0];
 			foreach (Comparable elemento in datos){
-				if (((Comparable)elemento).sosMayor(maximo)){
+				if (comparador.esMayor((ClaveValor)elemento, (ClaveValor)maximo)){
 					maximo=elemento;
 				}
 			}
@@ -38,7 +38,6 @@ namespace Practica
 		}
 		
 		public void recorrer(){
-			Console.WriteLine(datos[0]);
 			foreach (ClaveValor elemento in datos){
 				Console.WriteLine(elemento);
 			}
@@ -52,7 +51,7 @@ namespace Practica
 		public bool contiene(Comparable obj){
 			bool existe=false;
 			foreach (Comparable elemento in datos){
-				if (elemento.sosIgual(obj)){
+				if (comparador.esIgual((ClaveValor)elemento, (ClaveValor)obj)){
 					existe=true;
 				}
 			}
@@ -73,8 +72,16 @@ namespace Practica
 		}
 
 		public void agregar(Comparable valor){
-			indice=(((Numero)((ClaveValor)this.mayor()).getClave()).getValor() + 1);
+			EstrategiaDiccionario comparadorAgregar = new PorClave();
 			num=new Numero(indice);
+			ClaveValor claveTemp = new ClaveValor(num, valor);
+			foreach (Comparable elemento in datos){
+				if (comparadorAgregar.esMayor((ClaveValor)elemento, (ClaveValor)claveTemp)){
+					claveTemp.setClave(((ClaveValor)elemento).getClave());
+				}
+			}
+			indice=(((Numero)((ClaveValor)claveTemp).getClave()).getValor() + 1);
+			num.setValor(indice);
 			agregarClaveValor(num, valor);
 		}
 		
@@ -108,9 +115,9 @@ namespace Practica
 			}
 			if (!existe){
 				Console.WriteLine("La clave no existe");
-				return existe;
+				return null;
 			}
-			return existe;
+			return null;
 			
 		}
 

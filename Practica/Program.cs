@@ -42,7 +42,7 @@ namespace Practica
 			informar(multipleAlumnos);	
 
 			Diccionario<Comparable> dictionary = new Diccionario<Comparable>();
-			Numero number = new Numero(1);
+			Numero number = new Numero(3);
 			Numero number2 = new Numero(2);
 			
 			dictionary.agregarClaveValor(number,"avion");
@@ -51,14 +51,17 @@ namespace Practica
 
 			ClaveValor valorVacio = new ClaveValor("gato");
 			dictionary.agregar(valorVacio);
-
+			
+			Console.WriteLine("\n");
 			dictionary.recorrer();
 			
 			Console.WriteLine("\nInformar Diccionario: \n---------------------");
 			informar(dictionary);
 			
-			Console.WriteLine("\nInformar valor de: ");
-			Console.WriteLine(dictionary.valorDe(number));
+			Console.WriteLine("\nIngrese clave: ");
+			int insertNum = int.Parse(Console.ReadLine());
+			Numero checkClave = new Numero(insertNum);
+			Console.WriteLine(dictionary.valorDe(checkClave));
 			
 			Console.ReadKey();
 			

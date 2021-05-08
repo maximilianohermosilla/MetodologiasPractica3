@@ -17,6 +17,10 @@ namespace Practica
 			return valor;
 		}
 		
+		public void setValor(int valor){
+			this.valor=valor;
+		}
+		
 		public bool sosIgual(Comparable obj){
 			bool esIgual=false;
 			if (valor==((Numero)obj).getValor()){

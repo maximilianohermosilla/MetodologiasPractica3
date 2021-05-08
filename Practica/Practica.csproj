@@ -57,6 +57,7 @@
     <Compile Include="Conjunto.cs" />
     <Compile Include="Diccionario.cs" />
     <Compile Include="EstrategiaComparar.cs" />
+    <Compile Include="EstrategiaDiccionario.cs" />
     <Compile Include="Numero.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Pila.cs" />
