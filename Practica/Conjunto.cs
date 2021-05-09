@@ -6,13 +6,17 @@ namespace Practica
 	/// <summary>
 	/// Description of Conjunto.
 	/// </summary>
-	public class Conjunto<T>: Coleccionable
+	public class Conjunto<T>: Coleccionable, Iterable
 	{
 		private List<Comparable> datos = new List<Comparable>();
-		
+		IteradorConjunto<T> it;
 		
 		public int cuantos(){
 			return datos.Count;
+		}
+		
+		public Comparable actual(){
+			return datos[cuantos()-1];
 		}
 		
 		public Comparable menor(){
@@ -67,6 +71,24 @@ namespace Practica
 		
 		public bool pertenece(Comparable obj){
 			return this.contiene(obj);
+		}
+		
+		public Iterador crearIterador(){
+			Console.WriteLine("\nCreo iterador");
+			it= new IteradorConjunto<T>(this);
+			return it;
+		}
+		
+		public void recorrer(){
+			Console.WriteLine("Recorro iterador");
+			if (this.datos.Count>0){
+				while(!it.fin()){
+					foreach(Comparable elem in datos){
+						Console.WriteLine(elem);
+						it.siguiente();
+				    }
+				}
+			}
 		}
 	}
 }

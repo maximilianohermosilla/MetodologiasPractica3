@@ -6,15 +6,20 @@ namespace Practica
 	/// <summary>
 	/// Description of Diccionario.
 	/// </summary>
-	public class Diccionario<T>: Coleccionable
+	public class Diccionario<T>: Coleccionable, Iterable
 	{
 		private List<Comparable> datos = new List<Comparable>();
 		Numero num;
 		int indice=0;
 		EstrategiaDiccionario comparador = new PorValor();
-
+		IteradorDiccionario<T> it;
+		
 		public int cuantos(){
 			return this.datos.Count;
+		}
+		
+		public Comparable actual(){
+			return datos[cuantos()-1];
 		}
 		
 		public Comparable menor(){
@@ -36,13 +41,7 @@ namespace Practica
 			}
 			return maximo;
 		}
-		
-		public void recorrer(){
-			foreach (ClaveValor elemento in datos){
-				Console.WriteLine(elemento);
-			}
-		}
-		
+	
 		public bool pertenece(Comparable obj){
 			return this.contiene(obj);
 		}
@@ -92,14 +91,14 @@ namespace Practica
 				foreach (ClaveValor elemento in this.datos){
 					if(((ClaveValor)elemento).sosIgual(temp)){
 						((ClaveValor)elemento).setValor(valor);
-						Console.WriteLine("La clave ya existe");
+						//Console.WriteLine("Modifico clave");
 						existe=true;
 					}
 					else{existe=false;}
 				}
 			}
 			if (!existe){
-				Console.WriteLine("Agrego clave porque no existe");
+				//Console.WriteLine("Agrego clave");
 				datos.Add(temp);
 			}
 		}
@@ -120,6 +119,23 @@ namespace Practica
 			return null;
 			
 		}
-
+		
+		public Iterador crearIterador(){
+			Console.WriteLine("\nCreo iterador");
+			it= new IteradorDiccionario<T>(this);
+			return it;
+		}
+		
+		public void recorrer(){
+			Console.WriteLine("Recorro iterador");
+			if (this.datos.Count>0){
+				while(!it.fin()){
+					foreach(Comparable elem in datos){
+						Console.WriteLine(elem);
+						it.siguiente();
+				    }
+				}
+			}
+		}
 	}	
 }

@@ -6,10 +6,10 @@ namespace Practica
 	/// <summary>
 	/// Description of Pila.
 	/// </summary>
-	public class Pila<T> : Coleccionable
+	public class Pila<T> : Coleccionable, Iterable
 	{
 		private List<Comparable> datos = new List<Comparable>();
-	
+		IteradorPila<T> it;
 		public void push(Comparable elem) {
 			this.datos.Add(elem);
 		}
@@ -75,5 +75,19 @@ namespace Practica
 			}
 			return existe;
 		}
+		
+		public Iterador crearIterador(){
+			Console.WriteLine("\nCreo iterador");
+			it= new IteradorPila<T>(this);
+			return it;
+		}
+		
+		public void recorrer(){
+			Console.WriteLine("Recorro iterador");
+			it.siguiente();
+		}
+		
+		
+		
 	}
 }

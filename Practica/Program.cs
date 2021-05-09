@@ -9,8 +9,7 @@ namespace Practica
 			
 			Coleccionable cola = new Cola<Comparable>();
 			Coleccionable pila = new Pila<Comparable>();
-			
-			
+					
 			llenar(cola);
 			Console.WriteLine("Informar Cola: \n--------------");
 			informar(cola);
@@ -18,19 +17,27 @@ namespace Practica
 			llenar(pila);
 			Console.WriteLine("\nInformar Pila: \n--------------");
 			informar(pila);
+						
 			
 			ColeccionMultiple multiple = new ColeccionMultiple(((Pila<Comparable>)pila), ((Cola<Comparable>)cola));
 			Console.WriteLine("\nInformar ColeccionMultiple: \n---------------------------");
 			informar(multiple);
+			
+			imprimirElementos(pila);
+			imprimirElementos(cola);
 			
 			Coleccionable colaPersonas = new Cola<Comparable>();
 			llenarPersonas(colaPersonas);
 			Coleccionable pilaPersonas = new Pila<Comparable>();
 			llenarPersonas(pilaPersonas);
 			
+			
 			ColeccionMultiple multiplePersonas = new ColeccionMultiple(((Pila<Comparable>)pilaPersonas), ((Cola<Comparable>)colaPersonas));
 			Console.WriteLine("\nInformar ColeccionMultiplePersonas: \n-----------------------------------");
 			informar(multiplePersonas);
+			
+			imprimirElementos(pilaPersonas);
+			imprimirElementos(colaPersonas);
 			
 			Coleccionable colaAlumnos = new Cola<Comparable>();
 			llenarAlumnos(colaAlumnos);
@@ -40,6 +47,9 @@ namespace Practica
 			ColeccionMultiple multipleAlumnos = new ColeccionMultiple(((Pila<Comparable>)pilaAlumnos), ((Cola<Comparable>)colaAlumnos));
 			Console.WriteLine("\nInformar ColeccionMultipleAlumnos: \n----------------------------------");
 			informar(multipleAlumnos);	
+			
+			imprimirElementos(pilaAlumnos);
+			imprimirElementos(colaAlumnos);
 
 			Diccionario<Comparable> dictionary = new Diccionario<Comparable>();
 			Numero number = new Numero(3);
@@ -52,16 +62,20 @@ namespace Practica
 			ClaveValor valorVacio = new ClaveValor("gato");
 			dictionary.agregar(valorVacio);
 			
+			
 			Console.WriteLine("\n");
-			dictionary.recorrer();
+			
 			
 			Console.WriteLine("\nInformar Diccionario: \n---------------------");
 			informar(dictionary);
-			
+						
 			Console.WriteLine("\nIngrese clave: ");
 			int insertNum = int.Parse(Console.ReadLine());
 			Numero checkClave = new Numero(insertNum);
 			Console.WriteLine(dictionary.valorDe(checkClave));
+			
+			imprimirElementos(dictionary);
+			
 			
 			Console.ReadKey();
 			
@@ -132,6 +146,11 @@ namespace Practica
 				}
 				//Console.Write(((Alumno)alumno).getNombre() + " " + ((Alumno)alumno).getDni().ToString() + " " + ((Alumno)alumno).getLegajo() + " " + ((Alumno)alumno).getPromedio().ToString() + "\n");
 			}
+		}	
+		public static void imprimirElementos(Coleccionable colect){
+			((Iterable)colect).crearIterador();
+			((Iterable)colect).recorrer();
 		}
+		
 	}
 }
