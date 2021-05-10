@@ -80,13 +80,13 @@ namespace Practica
 		}
 		
 		public Iterador crearIterador(){
-			Console.WriteLine("\nCreo iterador");
+			//Console.WriteLine("\nCreo iterador");
 			it= new IteradorCola<T>(this);
 			return it;
 		}
 		
 		public void recorrer(){
-			Console.WriteLine("Recorro iterador");
+			//Console.WriteLine("Recorro iterador");
 			it.siguiente();
 		}
 		

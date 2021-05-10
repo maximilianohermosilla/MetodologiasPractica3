@@ -75,13 +75,13 @@ namespace Practica
 		}
 		
 		public Iterador crearIterador(){
-			Console.WriteLine("\nCreo iterador");
+			//Console.WriteLine("\nCreo iterador");
 			it= new IteradorConjunto<T>(this);
 			return it;
 		}
 		
 		public void recorrer(){
-			Console.WriteLine("Recorro iterador");
+			//Console.WriteLine("Recorro iterador");
 			if (this.datos.Count>0){
 				while(!it.fin()){
 					foreach(Comparable elem in datos){

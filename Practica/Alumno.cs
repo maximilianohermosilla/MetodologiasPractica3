@@ -58,7 +58,7 @@ namespace Practica
 		
 		public override string ToString()
 		{
-			return string.Format("{0}", dni);
+			return string.Format("LEGAJO:{0} , DNI:{1} , NOMBRE:{2} , PROMEDIO:{3}", legajo,dni,nombre,promedio);
 		}
 		
 		public void cambiarComparador(EstrategiaComparar comp){

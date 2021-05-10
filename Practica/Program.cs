@@ -6,6 +6,8 @@ namespace Practica
 	{
 		public static void Main(string[] args)
 		{
+			/*Console.WriteLine("Ejercicio 8\n***********\n");
+			
 			Coleccionable pila = new Pila<Comparable>();
 			Coleccionable cola = new Cola<Comparable>();
 			Coleccionable conjunto = new Conjunto<Comparable>();
@@ -24,6 +26,31 @@ namespace Practica
 			imprimirElementos(conjunto);
 			Console.WriteLine("\nIMPRIMO DICCIONARIO\n-------------------");
 			imprimirElementos(dictionary);
+			
+			*/
+			
+			Console.WriteLine("Ejercicio 10\n***********\n");
+			
+			Coleccionable pila2 = new Pila<Comparable>();
+			llenarAlumnos(pila2);
+			Console.WriteLine("\nIMPRIMO PILA POR NOMBRE\n-----------------------");
+			cambiarEstrategia(pila2, new PorNombre());
+			informar(pila2);
+			
+			Console.WriteLine("\nIMPRIMO PILA POR LEGAJO\n-----------------------");
+			cambiarEstrategia(pila2, new PorLegajo());
+			informar(pila2);
+			
+			Console.WriteLine("\nIMPRIMO PILA POR PROMEDIO\n-----------------------");
+			cambiarEstrategia(pila2, new PorPromedio());
+			informar(pila2);
+			
+			Console.WriteLine("\nIMPRIMO PILA POR DNI\n-----------------------");
+			cambiarEstrategia(pila2, new PorDni());
+			informar(pila2);
+			
+			Console.WriteLine("\nIMPRIMO ELEMENTOS\n-----------------------");
+			imprimirElementos(pila2);
 			
 			/*
 			Coleccionable cola = new Cola<Comparable>();
@@ -97,8 +124,6 @@ namespace Practica
 			*/
 			
 			Console.ReadKey();
-			
-			
 		}
 		
 		public static void llenar(Coleccionable lista){
@@ -114,17 +139,17 @@ namespace Practica
 			Console.Write("Cantidad de elementos: ");
 			Console.WriteLine(lista.cuantos());
 			Console.Write("Mínimo: ");
-			Console.WriteLine(lista.menor().informar());
+			Console.WriteLine((lista.menor()).informar());
 			Console.Write("Máximo: ");
 			Console.WriteLine(lista.mayor().informar());
-			Console.Write("Ingrese número: ");
+			/*Console.Write("Ingrese número: ");
 			string num = Console.ReadLine();
 			if (lista.contieneNumero(num)){
 				Console.WriteLine("El elemento leído está en la colección");
 			}
 			else{
 				Console.WriteLine("El elemento leído NO está en la colección");
-			}
+			}*/
 			}
 			catch(FormatException){
 				Console.WriteLine("* Numero invalido *");
@@ -148,7 +173,8 @@ namespace Practica
 		}
 		
 		public static void llenarAlumnos(Coleccionable lista){
-			//Random random = new Random();
+			cambiarEstrategia(lista,new PorDni());
+			Random random = new Random();
 			string nombre;
 			int dni, legajo;
 			decimal promedio;
@@ -159,7 +185,6 @@ namespace Practica
 			}
 			
 			for (int x=1; x<=20 ; x++){
-				Random random = new Random();
 				nombre=nombres[random.Next(0,19)];
 				dni=random.Next(12000000,40000000);
 				legajo=random.Next(1,2000);

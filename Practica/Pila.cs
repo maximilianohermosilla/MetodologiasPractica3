@@ -38,7 +38,7 @@ namespace Practica
 		public Comparable menor(){
 			Comparable minimo = datos[0];
 			foreach (Comparable elemento in datos){
-				if (((Comparable)elemento).sosMenor(minimo)){
+				if (comparador.esMenor(elemento,minimo)){
 					minimo=elemento;
 				}
 			}
@@ -48,7 +48,7 @@ namespace Practica
 		public Comparable mayor(){
 			Comparable maximo = datos[0];
 			foreach (Comparable elemento in datos){
-				if (((Comparable)elemento).sosMayor(maximo)){
+				if (comparador.esMayor(elemento,maximo)){
 					maximo=elemento;
 				}
 			}
@@ -61,9 +61,11 @@ namespace Practica
 		
 		public bool contiene(Comparable obj){
 			bool existe=false;
-			foreach (Comparable elemento in datos){
-				if (elemento.sosIgual(obj)){
-					existe=true;
+			if(this.datos.Count>0){
+				foreach (Comparable elemento in datos){
+					if (comparador.esIgual(elemento,obj)){
+						existe=true;
+					}
 				}
 			}
 			return existe;
@@ -80,13 +82,13 @@ namespace Practica
 		}
 		
 		public Iterador crearIterador(){
-			Console.WriteLine("\nCreo iterador");
+			//Console.WriteLine("\nCreo iterador");
 			it= new IteradorPila<T>(this);
 			return it;
 		}
 		
 		public void recorrer(){
-			Console.WriteLine("Recorro iterador");
+			//Console.WriteLine("Recorro iterador");
 			it.siguiente();
 		}
 		

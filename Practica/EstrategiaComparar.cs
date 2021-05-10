@@ -26,17 +26,17 @@ namespace Practica
 		
 		public bool esMenor (Comparable clave1, Comparable clave2){
 			bool menor=false;
-			/*if (((Alumno)clave1).getNombre()<((Alumno)clave2).getNombre()){
+			if ((((Alumno)clave1).getNombre()).GetHashCode() < ((((Alumno)clave2).getNombre())).GetHashCode()){
 				menor=true;
-			}*/
+			}
 			return menor;
 		}
 		
 		public bool esMayor (Comparable clave1, Comparable clave2){
 			bool mayor=false;
-			/*if (((Alumno)clave1).getNombre()>((Alumno)clave2).getNombre()){
+			if ((((Alumno)clave1).getNombre()).GetHashCode() > ((((Alumno)clave2).getNombre())).GetHashCode()){
 				mayor=true;
-			}*/
+			}
 			return mayor;
 		}
 	}
