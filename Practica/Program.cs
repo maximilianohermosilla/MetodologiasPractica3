@@ -6,7 +6,26 @@ namespace Practica
 	{
 		public static void Main(string[] args)
 		{
+			Coleccionable pila = new Pila<Comparable>();
+			Coleccionable cola = new Cola<Comparable>();
+			Coleccionable conjunto = new Conjunto<Comparable>();
+			Diccionario<Comparable> dictionary = new Diccionario<Comparable>();
 			
+			llenarAlumnos(pila);
+			llenarAlumnos(cola);
+			llenarAlumnos(conjunto);
+			llenarAlumnos(dictionary);
+			
+			Console.WriteLine("IMPRIMO PILA\n------------");
+			imprimirElementos(pila);
+			Console.WriteLine("\nIMPRIMO COLA\n------------");
+			imprimirElementos(cola);
+			Console.WriteLine("\nIMPRIMO CONJUNTO\n----------------");
+			imprimirElementos(conjunto);
+			Console.WriteLine("\nIMPRIMO DICCIONARIO\n-------------------");
+			imprimirElementos(dictionary);
+			
+			/*
 			Coleccionable cola = new Cola<Comparable>();
 			Coleccionable pila = new Pila<Comparable>();
 					
@@ -75,7 +94,7 @@ namespace Practica
 			Console.WriteLine(dictionary.valorDe(checkClave));
 			
 			imprimirElementos(dictionary);
-			
+			*/
 			
 			Console.ReadKey();
 			
@@ -114,11 +133,12 @@ namespace Practica
 		}
 		
 		public static void llenarPersonas(Coleccionable lista){
-			Random random = new Random();
+			
 			string nombre;
 			int dni;
 			string[] nombres=new string[]{"Maxi","Paula","Roberto","Nacho","Adrian","Diego","Lucia","Florencia","Cintia","Ana","Graciela","Yesica","Daiana","Carolina","Gaston","Luis","Jacinto","Ramona","Ignacia","Viviana"};
 			for (int x=1; x<=20 ; x++){
+				Random random = new Random();
 				nombre=nombres[random.Next(0,19)];
 				dni=random.Next(12000000,40000000);
 				Comparable persona = new Persona(nombre,dni);
@@ -128,19 +148,26 @@ namespace Practica
 		}
 		
 		public static void llenarAlumnos(Coleccionable lista){
-			Random random = new Random();
+			//Random random = new Random();
 			string nombre;
 			int dni, legajo;
 			decimal promedio;
 			string[] nombres=new string[]{"Maxi","Paula","Roberto","Nacho","Adrian","Diego","Lucia","Florencia","Cintia","Ana","Graciela","Yesica","Daiana","Carolina","Gaston","Luis","Jacinto","Ramona","Ignacia","Viviana"};
+			
+			if(lista.GetType() == Type.GetType("Practica.Diccionario`1[Practica.Comparable]")){
+				cambiarEstrategia(lista,new PorValorAlumno());
+			}
+			
 			for (int x=1; x<=20 ; x++){
+				Random random = new Random();
 				nombre=nombres[random.Next(0,19)];
 				dni=random.Next(12000000,40000000);
 				legajo=random.Next(1,2000);
 				promedio=decimal.Round((Convert.ToDecimal((random.NextDouble() + random.Next(1,10)))), 2);
 				Comparable alumno = new Alumno(nombre,dni,legajo,promedio);
+				
 				if (!lista.contiene(alumno)){
-				    	((Coleccionable)lista).agregar(alumno);}
+				    	(lista).agregar(alumno);}
 				else{
 					//Console.WriteLine("Ya existe el alumno");
 				}
@@ -150,6 +177,10 @@ namespace Practica
 		public static void imprimirElementos(Coleccionable colect){
 			((Iterable)colect).crearIterador();
 			((Iterable)colect).recorrer();
+		}
+		
+		public static void cambiarEstrategia(Coleccionable coleccion, EstrategiaComparar estrategia){
+			coleccion.cambiarComparador(estrategia);
 		}
 		
 	}

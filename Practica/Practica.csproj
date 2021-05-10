@@ -57,7 +57,6 @@
     <Compile Include="Conjunto.cs" />
     <Compile Include="Diccionario.cs" />
     <Compile Include="EstrategiaComparar.cs" />
-    <Compile Include="EstrategiaDiccionario.cs" />
     <Compile Include="Iterable.cs" />
     <Compile Include="Iterador.cs" />
     <Compile Include="Numero.cs" />

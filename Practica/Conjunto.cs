@@ -10,6 +10,7 @@ namespace Practica
 	{
 		private List<Comparable> datos = new List<Comparable>();
 		IteradorConjunto<T> it;
+		EstrategiaComparar comparador;
 		
 		public int cuantos(){
 			return datos.Count;
@@ -89,6 +90,10 @@ namespace Practica
 				    }
 				}
 			}
+		}
+		
+		public void cambiarComparador(EstrategiaComparar comp){
+			comparador=comp;
 		}
 	}
 }

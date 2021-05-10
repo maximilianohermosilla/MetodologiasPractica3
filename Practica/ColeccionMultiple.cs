@@ -9,6 +9,7 @@ namespace Practica
 	{
 		Cola<Comparable> cola;
 		Pila<Comparable> pila;
+		EstrategiaComparar comparador;
 		
 		public ColeccionMultiple(Pila<Comparable> p, Cola<Comparable> c)
 		{
@@ -56,6 +57,10 @@ namespace Practica
 				existe=true;
 			}
 			return existe;
+		}
+		
+		public void cambiarComparador(EstrategiaComparar comp){
+			comparador=comp;
 		}
 	}
 }

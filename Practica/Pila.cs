@@ -10,6 +10,9 @@ namespace Practica
 	{
 		private List<Comparable> datos = new List<Comparable>();
 		IteradorPila<T> it;
+		EstrategiaComparar comparador;
+		
+		
 		public void push(Comparable elem) {
 			this.datos.Add(elem);
 		}
@@ -87,7 +90,9 @@ namespace Practica
 			it.siguiente();
 		}
 		
-		
+		public void cambiarComparador(EstrategiaComparar comp){
+			comparador=comp;
+		}
 		
 	}
 }

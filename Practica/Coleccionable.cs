@@ -14,5 +14,6 @@ namespace Practica
 		void agregar(Comparable obj);
 		bool contiene(Comparable obj);
 		bool contieneNumero (string num);
+		void cambiarComparador(EstrategiaComparar estrategia);
 	}
 }

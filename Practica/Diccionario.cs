@@ -11,7 +11,7 @@ namespace Practica
 		private List<Comparable> datos = new List<Comparable>();
 		Numero num;
 		int indice=0;
-		EstrategiaDiccionario comparador = new PorValor();
+		EstrategiaComparar comparador = new PorValor();
 		IteradorDiccionario<T> it;
 		
 		public int cuantos(){
@@ -43,14 +43,20 @@ namespace Practica
 		}
 	
 		public bool pertenece(Comparable obj){
-			return this.contiene(obj);
+			bool existe=false;
+			foreach (Comparable elemento in datos){
+				if (elemento.sosIgual(obj)){
+					existe=true;
+				}
+			}
+			return existe;
 		}
 		
 		
 		public bool contiene(Comparable obj){
 			bool existe=false;
 			foreach (Comparable elemento in datos){
-				if (comparador.esIgual((ClaveValor)elemento, (ClaveValor)obj)){
+				if (comparador.esIgual((Comparable)elemento,(Comparable)obj)){
 					existe=true;
 				}
 			}
@@ -71,12 +77,12 @@ namespace Practica
 		}
 
 		public void agregar(Comparable valor){
-			EstrategiaDiccionario comparadorAgregar = new PorClave();
+			EstrategiaComparar comparadorAgregar = new PorClave();
 			num=new Numero(indice);
-			ClaveValor claveTemp = new ClaveValor(num, valor);
+			Comparable claveTemp = new ClaveValor(num, valor);
 			foreach (Comparable elemento in datos){
 				if (comparadorAgregar.esMayor((ClaveValor)elemento, (ClaveValor)claveTemp)){
-					claveTemp.setClave(((ClaveValor)elemento).getClave());
+					((ClaveValor)claveTemp).setClave(((ClaveValor)elemento).getClave());
 				}
 			}
 			indice=(((Numero)((ClaveValor)claveTemp).getClave()).getValor() + 1);
@@ -86,10 +92,11 @@ namespace Practica
 		
 		public void agregarClaveValor(Comparable clave, Object valor){
 			ClaveValor temp= new ClaveValor(clave, valor);
+			EstrategiaComparar comparadorAgregar = new PorClave();
 			bool existe=false;
 			if (this.cuantos() > 0){
 				foreach (ClaveValor elemento in this.datos){
-					if(((ClaveValor)elemento).sosIgual(temp)){
+					if (comparadorAgregar.esIgual((Comparable)elemento,(Comparable)temp)){
 						((ClaveValor)elemento).setValor(valor);
 						//Console.WriteLine("Modifico clave");
 						existe=true;
@@ -99,6 +106,7 @@ namespace Practica
 			}
 			if (!existe){
 				//Console.WriteLine("Agrego clave");
+				//Console.WriteLine((temp.getValor()).GetType() + " " + temp.getValor());
 				datos.Add(temp);
 			}
 		}
@@ -136,6 +144,10 @@ namespace Practica
 				    }
 				}
 			}
+		}
+		
+		public void cambiarComparador(EstrategiaComparar comp){
+			comparador=comp;
 		}
 	}	
 }

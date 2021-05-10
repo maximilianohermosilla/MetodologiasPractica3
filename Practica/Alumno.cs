@@ -9,7 +9,7 @@ namespace Practica
 	{
 		private int legajo;
 		private decimal promedio;
-		EstrategiaComparar comparador = new PorPromedio();
+		EstrategiaComparar comparador = new PorDni();
 		
 		public Alumno(){
 		}
@@ -58,7 +58,7 @@ namespace Practica
 		
 		public override string ToString()
 		{
-			return string.Format("{0}", promedio);
+			return string.Format("{0}", dni);
 		}
 		
 		public void cambiarComparador(EstrategiaComparar comp){

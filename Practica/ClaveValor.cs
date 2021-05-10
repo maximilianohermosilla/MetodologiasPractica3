@@ -36,7 +36,7 @@ namespace Practica
 	
 		public bool sosIgual(Comparable obj){
 			bool esIgual=false;
-			if ((((ClaveValor)obj).getClave())==((Numero)clave)){
+			if ((((ClaveValor)obj).getClave())==((Numero)valor)){
 				esIgual=true;
 		}
 			return esIgual;
