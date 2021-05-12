@@ -60,6 +60,7 @@
     <Compile Include="GeneradorDeDatosAleatorios.cs" />
     <Compile Include="Iterable.cs" />
     <Compile Include="Iterador.cs" />
+    <Compile Include="LectorDeDatos.cs" />
     <Compile Include="Numero.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Pila.cs" />

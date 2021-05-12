@@ -7,9 +7,15 @@ namespace Practica
 		public static void Main(string[] args)
 		{
 			GeneradorDeDatosAleatorios gen = new GeneradorDeDatosAleatorios();
-			Console.WriteLine(gen.numeroAleatorio(10));
-			Console.WriteLine(gen.stringAleatorio(8));
+			LectorDeDatos lect = new LectorDeDatos();
 			
+			Console.Write("Numero aleatorio: ");
+			Console.WriteLine(gen.numeroAleatorio(lect.numeroPorTeclado()));
+			Console.Write("String aleatorio: ");
+			Console.WriteLine(gen.stringAleatorio(lect.numeroPorTeclado()));
+			
+			Console.ReadKey();
+			/*
 			Console.WriteLine("Ejercicio 8\n***********\n");
 			
 			Coleccionable pila = new Pila<Comparable>();
