@@ -6,7 +6,7 @@ namespace Practica
 	{
 		public static void Main(string[] args)
 		{
-			/*Console.WriteLine("Ejercicio 8\n***********\n");
+			Console.WriteLine("Ejercicio 8\n***********\n");
 			
 			Coleccionable pila = new Pila<Comparable>();
 			Coleccionable cola = new Cola<Comparable>();
@@ -27,9 +27,9 @@ namespace Practica
 			Console.WriteLine("\nIMPRIMO DICCIONARIO\n-------------------");
 			imprimirElementos(dictionary);
 			
-			*/
 			
-			Console.WriteLine("Ejercicio 10\n***********\n");
+			
+			Console.WriteLine("\nEjercicio 10\n***********\n");
 			
 			Coleccionable pila2 = new Pila<Comparable>();
 			llenarAlumnos(pila2);
