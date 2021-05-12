@@ -57,6 +57,7 @@
     <Compile Include="Conjunto.cs" />
     <Compile Include="Diccionario.cs" />
     <Compile Include="EstrategiaComparar.cs" />
+    <Compile Include="GeneradorDeDatosAleatorios.cs" />
     <Compile Include="Iterable.cs" />
     <Compile Include="Iterador.cs" />
     <Compile Include="Numero.cs" />

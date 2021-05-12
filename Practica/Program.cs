@@ -6,6 +6,10 @@ namespace Practica
 	{
 		public static void Main(string[] args)
 		{
+			GeneradorDeDatosAleatorios gen = new GeneradorDeDatosAleatorios();
+			Console.WriteLine(gen.numeroAleatorio(10));
+			Console.WriteLine(gen.stringAleatorio(8));
+			
 			Console.WriteLine("Ejercicio 8\n***********\n");
 			
 			Coleccionable pila = new Pila<Comparable>();
