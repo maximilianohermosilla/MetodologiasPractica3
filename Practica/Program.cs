@@ -6,6 +6,9 @@ namespace Practica
 	{
 		public static void Main(string[] args)
 		{
+			string st1="maxi";
+			string st2="roberto";
+			
 			GeneradorDeDatosAleatorios gen = new GeneradorDeDatosAleatorios();
 			LectorDeDatos lect = new LectorDeDatos();
 			
