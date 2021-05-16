@@ -19,7 +19,7 @@ namespace Practica
 		}
 		
 		public string stringPorTeclado(){
-			Console.WriteLine("Ingrese un numero: ");
+			Console.WriteLine("Ingrese texto: ");
 			string cadena=Console.ReadLine();
 			return cadena;
 		}

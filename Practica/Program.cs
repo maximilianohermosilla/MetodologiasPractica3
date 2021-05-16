@@ -6,12 +6,20 @@ namespace Practica
 	{
 		public static void Main(string[] args)
 		{
+			
 			GeneradorDeDatosAleatorios gen = new GeneradorDeDatosAleatorios();
 			LectorDeDatos lector=new LectorDeDatos();
 			
+			Console.WriteLine("NUMERO ALEATORIO ENTRE 0 Y ...: ");
 			Console.WriteLine(gen.numeroAleatorio(lector.numeroPorTeclado()));
+			Console.WriteLine("STRING ALEATORIO - CANTIDAD DE CARACTERES: ");
 			Console.WriteLine(gen.stringAleatorio(lector.numeroPorTeclado()));
 			
+			Console.WriteLine("\nFABRICA DE COMPARABLES \n********************** \n1) NUMERO \n2) ALUMNO \n");
+			int tipoComparable = int.Parse(Console.ReadLine());
+			Comparable nuevo = FabricaDeComparables.crearComparables(tipoComparable);
+			Console.WriteLine(nuevo);
+		
 			
 			
 			/*Console.WriteLine("Ejercicio 8\n***********\n");

@@ -9,6 +9,10 @@ namespace Practica
 	{
 		private int valor;
 		
+		public Numero(){
+			
+		}
+		
 		public Numero (int v){
 			valor=v;
 		}
