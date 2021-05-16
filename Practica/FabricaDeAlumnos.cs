@@ -5,7 +5,8 @@ namespace Practica
 {
 	/// <summary>
 	/// Description of FabricaDeAlumnos.
-	/// </summary>
+	/// </summary>1
+	
 	public class FabricaDeAlumnos: FabricaDeComparables
 	{	
 		
